@@ -1,0 +1,10 @@
+clk:           0	en: 0	d: 0	q: 0
+clk:           1	en: 0	d: 1	q: 0
+clk:           2	en: 1	d: 1	q: 1
+clk:           3	en: 1	d: 0	q: 1
+clk:           4	en: 0	d: 0	q: 0
+clk:           5	en: 0	d: 1	q: 0
+clk:           6	en: 1	d: 1	q: 1
+clk:           7	en: 1	d: 0	q: 1
+clk:           8	en: 0	d: 0	q: 0
+clk:           9	en: 0	d: 1	q: 0
