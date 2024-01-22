@@ -4,7 +4,7 @@ read_xdc simple_module.xdc
 
 # Run Synthesis
 
-synth_design -top simple_module -part xc7a35tcpg236-1
+synth_design -top top_v  -part xc7a35tcpg236-1
 write_verilog -force post_synth.v
 
 # Implement (optimize, place, route)

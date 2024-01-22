@@ -13,7 +13,7 @@ module testbench ();
    
        
    // INSTANTIATE the DEVICE UNDER TEST (DUT)
-   simple_module DUT(
+   top_v DUT(
 		      .clk(clk),
 		      .en(en),
 		      .d(d),
