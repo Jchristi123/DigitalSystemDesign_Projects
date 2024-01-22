@@ -29,6 +29,12 @@ module testbench ();
    end
 
    // INSTANTIATE REVERSE_BITS_MODULE
+   reverse_bits_module DUT(
+      .a(a),
+      .b(b),
+      .q(q),
+      .w(w)
+   );
    
 
    // WRITE OUTPUT TO CONSOLE:
