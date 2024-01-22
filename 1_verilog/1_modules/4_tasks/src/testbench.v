@@ -7,8 +7,8 @@ module testbench ();
    reg [7:0] a;  // by the testbench
    reg [7:0] b;  // by the testbench
 
-   reg [7:0] q;
-   reg [7:0] w;
+   wire [7:0] q;
+   wire [7:0] w;
 
    integer clk_count = 0;   
 
@@ -30,13 +30,35 @@ module testbench ();
    end
 
    
-   integer idx;
-   always @(*) begin
+/*task automatic reverse_bits_task;
+   input   [7:0]  in;
+   output  [7:0]  out;
+
+   integer          idx;
+   
+   begin
       for (idx=0; idx<8; idx=idx+1) begin
-	 q[7-idx] = a[idx];
-	 w[7-idx] = b[idx];
+         out[7-idx] = in[idx];
       end
    end
+endtask*/
+
+   //integer idx;
+   
+   /*`include "inc/reverse_bits_task.v"
+   always @(a,b) begin
+      
+	reverse_bits_task(.in(a),.out(q));
+   reverse_bits_task(.in(b),.out(w));
+   
+   end*/
+
+   reverse_bits_module RBM(
+      .a(a),
+      .b(b),
+      .q(q),
+      .w(w)
+   );
 
 
    // WRITE OUTPUT TO CONSOLE:
@@ -65,5 +87,6 @@ module testbench ();
       end
    end
 
+   
    
 endmodule // testbench
