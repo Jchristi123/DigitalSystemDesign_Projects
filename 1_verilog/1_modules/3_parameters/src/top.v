@@ -33,11 +33,11 @@ module top (
    //===============================//
    // FINISH THIS INSTANCE          //
    //===============================//
-   simple_adder #(.W(   )) SA3
+   simple_adder #(.W(5)) SA3
      (
       .clk(clk),
-      .a(    ),
-      .b(    ),
+      .a(a_plus_b),
+      .b(c_plus_d),
       .sum(sum)
       );
    //===============================//
