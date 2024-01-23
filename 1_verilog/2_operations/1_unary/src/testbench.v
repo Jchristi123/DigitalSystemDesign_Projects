@@ -33,17 +33,21 @@ module testbench ();
       $write("clk:  %d", clk_count);      
       $write("\ta:  %b", a);
       $write("\t~a: %b", ~a);
-      $write("\t&a: %b", &a);
-      $write("\t|a: %b", |a);     
-      $write("\t^a: %b", ^a);     
+      $write("\t~&a: %b", ~&a);
+      $write("\t~|a: %b", ~|a);     
+      $write("\t^a: %b", ^a);   
+      $write("\t&(~a): %b", &(~a));  
+      $write("\t|(~a): %b", |(~a));    
       $write("\n");
       
       $fwrite(fid,"clk:  %d", clk_count);      
       $fwrite(fid,"\ta:  %b", a);
       $fwrite(fid,"\t~a: %b", ~a);
-      $fwrite(fid,"\t&a: %b", &a);
-      $fwrite(fid,"\t|a: %b", |a);     
-      $fwrite(fid,"\t^a: %b", ^a);     
+      $fwrite(fid,"\t~&a: %b", ~&a);
+      $fwrite(fid,"\t~|a: %b", ~|a);     
+      $fwrite(fid,"\t^a: %b", ^a);   
+      $fwrite(fid,"\t&(~a): %b", &(~a));  
+      $fwrite(fid,"\t|(~a): %b", |(~a));     
       $fwrite(fid,"\n");
    end
 
