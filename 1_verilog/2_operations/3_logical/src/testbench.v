@@ -38,6 +38,10 @@ module testbench ();
       $write("\ta&&b: %b", a&&b);
       $write("\ta||b: %b", a||b);
       $write("\ta==b: %b", a==b);
+
+      if ((a[3] == b[3]) && (a[2] != b[2]) || (|a == 0))
+      $write(" condition met ");
+
       $write("\n");
       
       $fwrite(fid,"clk:  %d", clk_count);      
@@ -45,7 +49,9 @@ module testbench ();
       $fwrite(fid,"\tb:  %b", b);
       $fwrite(fid,"\ta&&b: %b", a&&b);
       $fwrite(fid,"\ta||b: %b", a||b);
-      $fwrite(fid,"\ta==b: %b", a==b);      
+      $fwrite(fid,"\ta==b: %b", a==b);   
+      if ((a[3] == b[3]) && (a[2] != b[2]) || (|a == 0))
+      $fwrite(fid, " condition met ");   
       $fwrite(fid,"\n");
    end
 

@@ -1,0 +1,9 @@
+clk:            0	a:  00000000	b:  00000000	a&&b: 0	a||b: 0	a==b: 1 condition met 
+clk:            1	a:  00100100	b:  10000001	a&&b: 1	a||b: 1	a==b: 0 condition met 
+clk:            2	a:  00001001	b:  01100011	a&&b: 1	a||b: 1	a==b: 0
+clk:            3	a:  00001101	b:  10001101	a&&b: 1	a||b: 1	a==b: 0
+clk:            4	a:  01100101	b:  00010010	a&&b: 1	a||b: 1	a==b: 0 condition met 
+clk:            5	a:  00000001	b:  00001101	a&&b: 1	a||b: 1	a==b: 0
+clk:            6	a:  01110110	b:  00111101	a&&b: 1	a||b: 1	a==b: 0
+clk:            7	a:  11101101	b:  10001100	a&&b: 1	a||b: 1	a==b: 0
+clk:            8	a:  11111001	b:  11000110	a&&b: 1	a||b: 1	a==b: 0
