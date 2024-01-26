@@ -4,7 +4,7 @@ read_xdc unsigned_arithmetic.xdc
 
 # Run Synthesis
 
-synth_design -top top_module -part xc7a35tcpg236-1
+synth_design -top up_down_counter -part xc7a35tcpg236-1
 write_verilog -force post_synth.v
 
 # Implement (optimize, place, route)
