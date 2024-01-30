@@ -16,6 +16,14 @@ module testbench ();
       b   = 0;
    end
 
+   wire [3:0] q;
+
+   top_v DUT (
+       .clk(clk),
+       .load(1'b1),
+       .a(a),
+       .q(q)
+   );
    // GENERATE CLOCK:
    initial forever #10 clk = ~clk;
    
@@ -35,11 +43,13 @@ module testbench ();
       $write("clk:  %d", clk_count);      
       $write("\ta:  %b", a);
       $write("\tb:  %b", b);
+      $write("\tq:  %b", q);
       $write("\n");
       
       $fwrite(fid,"clk:  %d", clk_count);      
       $fwrite(fid,"\ta:  %b", a);
       $fwrite(fid,"\tb:  %b", b);
+      $fwrite(fid, "\tq:  %b", q);
       $fwrite(fid,"\n");
    end
 

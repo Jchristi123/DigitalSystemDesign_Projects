@@ -4,8 +4,8 @@ read_xdc add_bits.xdc
 
 # Run Synthesis
 
-synth_design -top top -part xc7a35tcpg236-1
-write_verilog post_synth.v
+synth_design -top top_v -part xc7a35tcpg236-1
+write_verilog -force post_synth.v
 
 # Implement (optimize, place, route)
 opt_design
