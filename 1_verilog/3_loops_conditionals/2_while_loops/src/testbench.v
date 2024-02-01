@@ -1,73 +1,44 @@
 `timescale 1ns/1ps
 
-`define K 4
+// Use `defines for global parameters
+`define K 5
 `define W 2**`K-1
 
 module testbench ();
-   
-   // DECLARE SIGNALS
-   reg  clk;     
-   reg  [`K-1:0]  a; 
-   wire [`W-1:0]  b;
-   wire [`K-1:0]  c;
- 
-   integer clk_count = 0;   
 
-   thermometer_encoder TE1
-     (
-      .a(a),
-      .q(b)
-      );
-   
-   thermometer_decoder TD1
-     (
-      .a(b),
-      .q(c)
-      );
 
    
-   // INITIAL SIGNAL CONFIGURATION:
-   initial begin
-      clk = 0;      
-      a   = 0;
-   end
+      // DECLARE SIGNALS
+      reg  clk;     
+      reg  [`K-1:0]  a;  // Narrow encoder input REG
+      wire [`W-1:0]  b;  // Wide encoder output WIRE
+      wire [`K-1:0]  c;  // Narrow decoder output WIRE
+    
+      integer clk_count = 0;   
 
-   // GENERATE CLOCK:
-   initial forever #10 clk = ~clk;
-   
-   // CREATE STIMULI:
-   always @(posedge clk) begin
-      a <= a+1;
-   end
-
-   
-
-   // WRITE OUTPUT TO CONSOLE:
-   integer fid;
-   initial fid = $fopen("test_result.txt", "w");
-   
-   always @(posedge clk) begin
-      $write("clk:  %d", clk_count);      
-      $write("\ta:  %b", a);
-      $write("\tb:  %b", b);
-      $write("\tc:  %b", c);
-      $write("\n");
+      //======================================
+      // STRUCTURAL STATEMENTS" submodules, 
+      // wire connections.
+      //======================================
+      thermometer_encoder TE1
+        (
+         .a(a),  // input: 'reg' controlled by testbench
+         .q(b)   // output: 'wire' controlled by encoder
+         );
       
-      $fwrite(fid,"clk:  %d", clk_count);      
-      $fwrite(fid,"\ta:  %b", a);
-      $fwrite(fid,"\tb:  %b", b);
-      $fwrite(fid,"\tc:  %b", c);
-      $fwrite(fid,"\n");
-   end
+      thermometer_decoder TD1
+        (
+         .a(b),  // input: 'wire' connected from encoder
+         .q(c)   // output: 'wire' controlled by decoder
+         );
 
-   // DEFINE WHEN TO TERMINATE SIMULATION:
-   always @(posedge clk) begin
-      clk_count <= clk_count + 1;
-      if (clk_count == 32) begin
-	 $fclose(fid);
-	 $finish;
-      end
-   end
+      // Sub-module DEFPARAMS placed AFTER module instances:
+      defparam TE1.K = `K;
+      defparam TE1.W = `W;
+      defparam TD1.K = `K;
+      defparam TD1.W = `W;
+
+
+      endmodule
 
    
-endmodule // testbench
