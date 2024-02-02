@@ -27,6 +27,7 @@ module testbench ();
    // CREATE STIMULI:
    always @(posedge clk) begin
       // put your assignments here
+      {a,b,c_in} <= clk_count;
    end
 
    adder DUT 
@@ -49,7 +50,14 @@ module testbench ();
       $write("\tb:  %d", b);
       $write("\tc_in:  %b", c_in);
       $write("\ts: %d", s);
-      $write("\tc_out: %b", c_out);      
+      $write("\tc_out: %b", c_out);
+         $write("\t%b+%b+%b=%b+%b0",  // format string: a+b+c_in=s+c_out
+          DUT.myadder[0].fa.a,  // submodule.generate_block.instance.signal
+          DUT.myadder[0].fa.b,
+          DUT.myadder[0].fa.c_in,
+          DUT.myadder[0].fa.s,
+          DUT.myadder[0].fa.c_out
+         );      
             
       $write("\n");
       
@@ -59,6 +67,13 @@ module testbench ();
       $fwrite(fid,"\tc_in:  %b", c_in);
       $fwrite(fid,"\ts: %d", s);
       $fwrite(fid,"\tc_out: %b", c_out);
+         $fwrite(fid, "\t%b+%b+%b=%b+%b0",  // format string: a+b+c_in=s+c_out
+          DUT.myadder[0].fa.a,  // submodule.generate_block.instance.signal
+          DUT.myadder[0].fa.b,
+          DUT.myadder[0].fa.c_in,
+          DUT.myadder[0].fa.s,
+          DUT.myadder[0].fa.c_out
+         );
       
       $fwrite(fid,"\n");
    end
@@ -66,7 +81,7 @@ module testbench ();
    // DEFINE WHEN TO TERMINATE SIMULATION:
    always @(posedge clk) begin
       clk_count <= clk_count + 1;
-      if (clk_count == 8) begin
+      if (clk_count == 2**9) begin
 	 $fclose(fid);
 	 $finish;
       end
