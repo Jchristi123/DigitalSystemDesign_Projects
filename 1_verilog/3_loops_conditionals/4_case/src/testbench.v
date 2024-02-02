@@ -19,7 +19,7 @@ module testbench ();
       .A(A),
       .B(B),
       .sel(sel),
-      .q(Q),
+      .Q(Q),
       .overflow(overflow)
       );
    
@@ -38,7 +38,22 @@ module testbench ();
    
    // CREATE STIMULI:
    always @(posedge clk) begin
-      // put your assignments here
+      // Iterate through all possible values of A, B, and sel
+      for (A = -8; A <= 7; A = A + 1) begin
+         for (B = -8; B <= 7; B = B + 1) begin
+            for (sel = 0; sel <= 1; sel = sel + 1) begin
+               #10; // Wait for one clock cycle
+               
+               // Print the current test case
+               $write("Test case: A=%d, B=%d, sel=%d\n", A, B, sel);
+               
+               // Perform the assignment and wait for one clock cycle
+               // Assignments go here
+               
+               #10; // Wait for one clock cycle
+            end
+         end
+      end
    end
 
    

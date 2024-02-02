@@ -1,0 +1,9 @@
+clk:            0	sel: 00	a:   -8	b:   -8	q:    0	ov: x
+clk:            1	sel: 01	a:   -8	b:   -8	q:    0	ov: 1
+clk:            2	sel: 00	a:   -8	b:   -7	q:    0	ov: 1
+clk:            3	sel: 01	a:   -8	b:   -7	q:    1	ov: 1
+clk:            4	sel: 00	a:   -8	b:   -6	q:   -1	ov: 1
+clk:            5	sel: 01	a:   -8	b:   -6	q:    2	ov: 1
+clk:            6	sel: 00	a:   -8	b:   -5	q:   -2	ov: 1
+clk:            7	sel: 01	a:   -8	b:   -5	q:    3	ov: 1
+clk:            8	sel: 00	a:   -8	b:   -4	q:   -3	ov: 1
