@@ -7,7 +7,7 @@ module testbench ();
    reg a;  
    reg b;  
    reg en;
-   reg q;
+   wire q;
 
    
    integer clk_count = 0;   
@@ -30,9 +30,11 @@ module testbench ();
 
 
    // Demonstrate the conditional operator:
-   always @(*) begin
-      q = en ? a^b : 0;      
-   end
+   // always @(*) begin
+   //    q = en ? a^b : 0;      
+   // end
+
+   assign q = en ? a^b : 0; 
 
    
    // WRITE OUTPUT TO CONSOLE:

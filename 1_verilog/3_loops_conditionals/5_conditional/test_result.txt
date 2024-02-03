@@ -1,0 +1,9 @@
+clk:            0	a:  0	b:  0	en: 0	q:  0
+clk:            1	a:  0	b:  0	en: 0	q:  0
+clk:            2	a:  0	b:  1	en: 0	q:  0
+clk:            3	a:  1	b:  0	en: 0	q:  0
+clk:            4	a:  1	b:  1	en: 0	q:  0
+clk:            5	a:  0	b:  0	en: 1	q:  0
+clk:            6	a:  0	b:  1	en: 1	q:  1
+clk:            7	a:  1	b:  0	en: 1	q:  1
+clk:            8	a:  1	b:  1	en: 1	q:  0
