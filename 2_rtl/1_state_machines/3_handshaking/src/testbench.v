@@ -25,6 +25,7 @@ module testbench ();
      (
       .clk(clk),
       .rst(rst),
+      .rst_l(rst_l),
       .ready(ready),
       .start(start),
       .done(done)
@@ -35,6 +36,7 @@ module testbench ();
      (
       .clk(clk),
       .rst(rst),
+      .rst_l(rst_l),
       .start(start),
       .done(done)
       );
