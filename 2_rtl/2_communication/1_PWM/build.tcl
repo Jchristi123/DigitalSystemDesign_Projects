@@ -1,5 +1,6 @@
 # Load sources
 read_verilog [ glob src/*.v ]
+#read_xdc pwm_audio.xdc
 read_xdc pwm_audio.xdc
 
 # Run Synthesis
@@ -18,5 +19,6 @@ report_timing_summary -file post_route_timing.rpt
 report_utilization -file post_route_utilization.rpt
 
 # Make bitstream
+#write_bitstream -force pwm_audio.bit
 write_bitstream -force pwm_audio.bit
 
