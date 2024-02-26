@@ -17,7 +17,7 @@ module keypad
 
 
 
-    clock_divider clkdiv(
+    clock_divider #(.N(N)) clkdiv(
         .clk(clk), 
         .rst_l(rst_l), 
         .div_clk(scan));
@@ -32,7 +32,7 @@ module keypad
          state <= 0;
          keys  <= 0;
       end
-      else if (scan) begin
+      //else if (scan) begin //uncomment for implementation
          case (state)
            0:
              begin
@@ -43,7 +43,7 @@ module keypad
                 keys[4'h0] <= ~row[3];
 
                 // Proceed to the next state:
-                state    <= 1;                
+                //state    <= 1;      //uncomment for implementation          
              end
            1:
              begin
@@ -74,7 +74,7 @@ module keypad
              end
          endcase
       end
-   end
+   //end //uncomment for implementation
 
     // set the column values:
    assign col[0] = (state == 0) ? 0 : 1'bz;

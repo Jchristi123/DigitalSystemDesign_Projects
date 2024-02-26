@@ -6,6 +6,7 @@ module keyboard_audio (
        input   rst,
        input   btn1,
        input [7:0] volume,
+
        output reg    led,
        output reg    AIN,
        output reg    GAIN,
@@ -13,7 +14,7 @@ module keyboard_audio (
     
     //Keypad module
         input  [3:0]  row,
-        output [3:0]  col
+       output [3:0]  col
     );
 
     //Debouncer module
@@ -120,16 +121,16 @@ module keyboard_audio (
      2048: begin
          N <= 236;
          end
-      5096: begin
+      4096: begin
          N  <= 222;
          end
-     10192: begin
+     8192: begin
          N <= 198;
          end
-      20384: begin
+      16384: begin
          N <= 177;
          end
-      40768: begin
+      32768: begin
          N <= 166;
          end
       default: begin
