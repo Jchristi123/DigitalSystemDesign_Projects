@@ -1,13 +1,13 @@
-Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
-------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-| Date         : Mon Feb 12 21:11:31 2024
-| Host         : genesys.bluezone.usu.edu running 64-bit unknown
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
+| Date         : Tue Feb 20 15:34:24 2024
+| Host         : el103-19.ece.usu.edu running 64-bit CentOS Linux release 7.9.2009 (Core)
 | Command      : report_timing_summary -file post_route_timing.rpt
 | Design       : top
 | Device       : 7a35t-cpg236
 | Speed File   : -1  PRODUCTION 1.23 2018-06-13
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
 Timing Summary Report
 
@@ -136,7 +136,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      6.154        0.000                      0                   22        0.229        0.000                      0                   22        4.500        0.000                       0                    23  
+      6.157        0.000                      0                   22        0.229        0.000                      0                   22        4.500        0.000                       0                    23  
 
 
 All user specified timing constraints are met.
@@ -159,7 +159,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         6.154        0.000                      0                   22        0.229        0.000                      0                   22        4.500        0.000                       0                    23  
+sys_clk_pin         6.157        0.000                      0                   22        0.229        0.000                      0                   22        4.500        0.000                       0                    23  
 
 
 ------------------------------------------------------------------------------------------------
@@ -190,7 +190,7 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            0  Failing Endpoints,  Worst Slack        6.154ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        6.157ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack        0.229ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -198,16 +198,16 @@ PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Vio
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             6.154ns  (required time - arrival time)
+Slack (MET) :             6.157ns  (required time - arrival time)
   Source:                 PWM1/f_count_reg[3]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            PWM1/f_count_reg[0]/D
+  Destination:            PWM1/f_count_reg[5]/D
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.799ns  (logic 1.872ns (49.278%)  route 1.927ns (50.722%))
-  Logic Levels:           4  (CARRY4=2 LUT2=1 LUT3=1)
+  Data Path Delay:        3.797ns  (logic 1.872ns (49.299%)  route 1.925ns (50.701%))
+  Logic Levels:           4  (CARRY4=2 LUT3=2)
   Clock Path Skew:        -0.041ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    4.855ns = ( 14.855 - 10.000 ) 
     Source Clock Delay      (SCD):    5.156ns
@@ -239,10 +239,10 @@ Slack (MET) :             6.154ns  (required time - arrival time)
                          net (fo=1, routed)           0.000     7.313    PWM1/f_count1_carry_n_0
     SLICE_X2Y12          CARRY4 (Prop_carry4_CI_CO[0])
                                                       0.254     7.567 f  PWM1/f_count1_carry__0/CO[0]
-                         net (fo=11, routed)          1.021     8.588    PWM1/f_count1_carry__0_n_3
-    SLICE_X4Y11          LUT2 (Prop_lut2_I1_O)        0.367     8.955 r  PWM1/f_count[0]_i_1/O
-                         net (fo=1, routed)           0.000     8.955    PWM1/f_count[0]_i_1_n_0
-    SLICE_X4Y11          FDCE                                         r  PWM1/f_count_reg[0]/D
+                         net (fo=11, routed)          1.020     8.587    PWM1/f_count1_carry__0_n_3
+    SLICE_X4Y11          LUT3 (Prop_lut3_I2_O)        0.367     8.954 r  PWM1/f_count[5]_i_1/O
+                         net (fo=1, routed)           0.000     8.954    PWM1/p_2_in[5]
+    SLICE_X4Y11          FDCE                                         r  PWM1/f_count_reg[5]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -253,15 +253,15 @@ Slack (MET) :             6.154ns  (required time - arrival time)
                          net (fo=1, routed)           1.862    13.250    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
                          net (fo=22, routed)          1.514    14.855    PWM1/CLK
-    SLICE_X4Y11          FDCE                                         r  PWM1/f_count_reg[0]/C
+    SLICE_X4Y11          FDCE                                         r  PWM1/f_count_reg[5]/C
                          clock pessimism              0.260    15.115    
                          clock uncertainty           -0.035    15.080    
-    SLICE_X4Y11          FDCE (Setup_fdce_C_D)        0.029    15.109    PWM1/f_count_reg[0]
+    SLICE_X4Y11          FDCE (Setup_fdce_C_D)        0.031    15.111    PWM1/f_count_reg[5]
   -------------------------------------------------------------------
-                         required time                         15.109    
-                         arrival time                          -8.955    
+                         required time                         15.111    
+                         arrival time                          -8.954    
   -------------------------------------------------------------------
-                         slack                                  6.154    
+                         slack                                  6.157    
 
 
 
